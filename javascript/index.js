@@ -5,6 +5,8 @@ let producto;
 let precio;
 let cantidad;
 let total = 0;
+let precioPromedio =3000;
+
 
 function pedirNombre() {
     nombre = prompt ("ingrese su nombre")
@@ -69,5 +71,18 @@ function iniciar() {
 console.log(total);
 }
 
+function cantidadDias(dias) {
+    
+}
+//iniciar();
 
-iniciar();
+const dias =[3,5,7,14];// cantidad de dias de la estadia
+const precioDia =[2000,3000,5000]; //varia segun la habitacion.
+let precioEstadia = dias [2] * precioDia[2] ;// precio de la estadia seleccionada
+
+console.log(precioEstadia);
+
+dias.unshift ("2"); //se agrega un nuevo elemento a dias.
+
+precioEstadia = dias [2] * precioDia[2] ;// se vuelve a calcular con el nuevo elemento agregado.
+console.log(precioEstadia);// se calcula nuevamente el valor de la estadia ya que los elemntos cambiaron de posicion.
