@@ -1,4 +1,4 @@
-
+/*
 //-----------variables--------------
 let nombre;
 let contraseña;
@@ -165,4 +165,85 @@ console.log("Precio de la actividad elegida y cantidad de personas " + "= " + re
 console.log("Precio de la actividad elegida y cantidad de personas " + "= " + reserva6.valorReservas());
 
 
-console.log("Precio total del pack elegido " + "= " + packComprado.totalReserva());
+console.log("Precio total del pack elegido " + "= " + packComprado.totalReserva()); 
+*/
+
+//--------------------------DOM---------------------------------
+
+let titulo = document.getElementById("titulo")
+let verActividades = document.getElementById("verActividades")
+const div = document.querySelector('.div')
+let carrito = []
+
+function mostrarActividad() {
+    excursiones.forEach((paseos) => {
+        let card = document.createElement("div")
+        card.setAttribute("class","single-package-item")
+        card.setAttribute("class","col-md-4 col-sm-6")
+        verActividades.append(card)
+        let img = document.createElement("img")
+        img.setAttribute("src",paseos.img)
+        img.setAttribute("class","imgpacks")
+        let nombre = document.createElement("h3")
+        nombre.setAttribute("class","single-package-item")
+        nombre.setAttribute("class","single-package-item h3")
+        nombre.innerText = (paseos.nombre)
+        let descripcion = document.createElement("h4")
+        descripcion.setAttribute( "class","packages-para p")
+        descripcion.innerText = (paseos.descripcion)
+        let precio = document.createElement("span")
+        precio.innerText = (paseos.precio)
+        precio.setAttribute("class","pull-right")
+        let button = document.createElement("button")
+        button.setAttribute("class","btn btn-warning")
+        button.innerText = ("Agregar al carrito")
+       card.append(img, nombre,descripcion, precio, button)
+       button.addEventListener("click", function () {
+        carrito.push(paseos)
+        alert("Agregaste " + paseos.nombre + " al carrito");   
+
+        let personas = parseInt(prompt("ingrese la cantidad de personas"));
+        let precioAtividad = personas * paseos.precio;
+
+        console.log(precioAtividad);
+        
+    })
+})
+
+}
+
+console.log(carrito);
+
+mostrarActividad();
+
+//-----------ver carrito----------------
+
+// let verCarrito = document.getElementById("verCarrito")
+// //let goToCart = document.getElementById("goToCart")
+// let carritoDetalle = document.getElementById("carritoDetalle")
+
+
+// let alertCart = document.createElement("h2")
+// //alertCart.setAttribute("class", "alerta")
+
+// if (!carrito.lenght) {
+//     alertCart.innerText = ("El carrito está vacío")
+//     alertCart.innerHTML=``
+// }
+
+
+
+// function mostrarCarrito() {
+//     alertCart.remove()
+
+//     excursiones.forEach((elemento) => {
+//         const tuCarrito = document.createElement('li')
+//         tuCarrito.innerHTML += ` 
+//         <img src="${elemento.img}">
+//         <h3>${elemento.nombre}</h3>
+//         <h3>$${elemento.precio}</h3>`
+
+//         div.appendChild(tuCarrito)
+//     })
+// }
+//     mostrarCarrito()
