@@ -6,8 +6,8 @@ const excursiones = [
           descripcion:"Disfrute de multiplies lugares para hacer avistajes de ballenes,delfines y lobos.",
           nombre:"Avistajes ",
           precio:5000,
-          img: src= "imagespm/avistaje2.jpg"
-          
+          img: src= "imagespm/avistaje2.jpg",
+          cantidad: 1
         },     
 
         {
@@ -15,8 +15,8 @@ const excursiones = [
           descripcion:"Vivi una experencia unica, veni a descubrir el lecho marino del Golfo Nuevo.",
           nombre:"Buceo",
           precio: 8000,
-          img: src="imagespm/buceo.jpg"
-          
+          img: src="imagespm/buceo.jpg",
+          cantidad: 1
         },
 
         {
@@ -24,8 +24,8 @@ const excursiones = [
           descripcion:"Disfruta de una expericia unica en la vida, intereractua con lobos marinos en su entorno.",
           nombre:"Snorkel con Lobos",
           precio: 4000,
-          img: src= "imagespm/snk lobo2.jpg"
-          
+          img: src= "imagespm/snk lobo2.jpg",
+          cantidad: 1
         },
 
         {
@@ -33,8 +33,8 @@ const excursiones = [
           descripcion:"Recorre los senderos por campo traviesa o a orillas del mar.",
           nombre:"Ciclismo Aventura",
           precio: 3000,
-          img: src= "imagespm/ciclismo.jpg"
-          
+          img: src= "imagespm/ciclismo.jpg",
+          cantidad: 1
         },        
 
         {
@@ -42,8 +42,8 @@ const excursiones = [
           descripcion:"Recorridos guiados por diferentes partes de la playa, relajante y hermoso.",
           nombre:"Kayak aventura",
           precio: 3000,
-          img: src= "imagespm/avistaje2.jpg"
-          
+          img: src= "imagespm/kayak.jpg",
+          cantidad: 1
         },
 
         {
@@ -51,8 +51,8 @@ const excursiones = [
           descripcion:"Conoce el unico lugar del mundo, donde las Orcas hacen el varamiento intecional para cazar.",
           nombre:"Punta Norte",
           precio: 3000,
-          img: src= "imagespm/orca2.jpg"
-          
+          img: src= "imagespm/orca2.jpg",
+          cantidad: 1
         }
 
 ]
