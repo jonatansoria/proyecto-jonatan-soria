@@ -643,12 +643,13 @@ html,body{
 
 
 .gallery-content {
-    margin-top:30px;
+    margin-top:20px;
     width: auto;
 }
 
 /* gallary-header  */
 .gallary-header h2{
+    margin-top: 30px;
     position:relative;
     color:#565a5c;  
     font-size:30px;
@@ -669,7 +670,7 @@ html,body{
 
 /*.item img*/
 .filtr-container .filtr-item img{
-    width:auto;
+    width:450px;
     height:393px;
     color: yellow;
 }
@@ -908,6 +909,7 @@ html,body{
     color: #00d8ff;
 }
 .total{
+    color: #222222;
     text-align: center;
     font-size:larger ;
 }
@@ -936,6 +938,25 @@ html,body{
     color: #F26250;
     background-color: #fff;
 }
+
+.finalizar-compra{
+    text-decoration: none;
+    color: #fff;
+    background-color: #00d8ff;
+    padding: 1em 1em;
+    border: 1px solid ;
+    border-radius: 6px;
+    display: inline-block;
+    font-weight: 300;
+    
+}
+
+.finalizar-compra:hover{
+    padding: 1em 1em;
+    color: #F26250;
+    background-color: #fff;
+}
+
 .vacio{
     
     color: #00d8ff;
@@ -966,6 +987,19 @@ html,body{
     color: #f26250;
     background-color:#fff;
 }
+
+.container-form{
+      color: #222222;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+}
+.formulario{
+ color: #00d8d5;
+}
+
+
+
 
 .video{
     margin-bottom: 50px;

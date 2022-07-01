@@ -4,8 +4,8 @@ const excursiones = [
         {
           id:"avistaje",
           descripcion:"Disfrute de multiplies lugares para hacer avistajes de ballenes,delfines y lobos.",
-          nombre:"Avistajes ",
-          precio:5000,
+          nombre:"Avistajes",
+          precio: 5000,
           img: src= "imagespm/avistaje2.jpg",
           cantidad: 1
         },     
