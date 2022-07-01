@@ -9,7 +9,6 @@ let carrito = []
 if (localStorage.getItem('carrito')) {
     carrito = JSON.parse(localStorage.getItem('carrito'))
     mostrarCarrito(true)
-
 }
 
 
@@ -69,19 +68,21 @@ let eliminarItem = document.querySelector(".eliminar")
 
 function removeItem(id) {
     document.getElementById(id).remove()
+    const findItem = carrito.find(element => element.id == id)
+    findItem.cantidad = 1
     carrito = carrito.filter(element => element.id != id)
     const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0)
     document.getElementById("totalCarrito").innerText = ("Precio Total: $" + total)
     if (!carrito.length) {
         document.getElementById("totalCarrito").remove()
     }
+    localStorage.setItem('carrito', JSON.stringify(carrito))
 }
 
 function mostrarCarrito(first) {
     if (!first) {
         alertCart.remove()
     }
-
     carrito.forEach((element) => {
         const divCart = document.createElement('tr')
         divCart.id = `${element.id}`
@@ -101,7 +102,9 @@ function mostrarCarrito(first) {
     let totalCompra = document.createElement("h4")
     totalCompra.id = "totalCarrito"
     totalCompra.setAttribute("class", "total")
-    totalCompra.innerText = ("Precio Total: $" + total)
+    if (total) {
+        totalCompra.innerText = ("Precio Total: $" + total)
+    }
     div.append(totalCompra)
 
     localStorage.setItem('carrito', JSON.stringify(carrito))
@@ -112,11 +115,13 @@ function mostrarCarrito(first) {
 let alertCart = document.createElement("h3")
 alertCart.setAttribute("class", "vacio")
 
-if (!carrito.lenght) {
+if (!carrito.length) {
     alertCart.innerText = ("El carrito está vacío")
     div.append(alertCart)
 } else { alertCart.remove() }
 
+
+//-------------fconfirmar compra---------------
 //    let cerrarCompra = document.querySelector(".eliminar")
 //     cerrarCompra.addEventListener ( 
 //         div.append(datosCompra)
@@ -124,7 +129,7 @@ if (!carrito.lenght) {
 
 
 
-//--------------ventana model(carrito)-------------------------
+//--------------ventana modal(carrito)-------------------------
 
 const abrirCarrito = document.querySelector('.compras');
 const elCarrito = document.querySelector('.container-carrito');
@@ -140,7 +145,3 @@ cerrarCarrito.addEventListener('click', function(event) {
     event.preventDefault()
     elCarrito.classList.remove('ventana-carrito')
 });
-
-// setStorage(){
-
-// }
