@@ -1,58 +1,58 @@
 
-const excursiones = [
+const excursions = [
 
         {
           id:"avistaje",
-          descripcion:"Disfrute de multiplies lugares para hacer avistajes de ballenes,delfines y lobos.",
-          nombre:"Avistajes",
-          precio: 5000,
+          description:"Disfrute de multiplies lugares para hacer avistajes de ballenes,delfines y lobos.",
+          name:"Avistajes",
+          price: 5000,
           img: src= "imagespm/avistaje2.jpg",
-          cantidad: 1
+          amount: 1
         },     
 
         {
           id:"Buceo",
-          descripcion:"Vivi una experencia unica, veni a descubrir el lecho marino del Golfo Nuevo.",
-          nombre:"Buceo",
-          precio: 8000,
+          description:"Vivi una experencia unica, veni a descubrir el lecho marino del Golfo Nuevo.",
+          name:"Buceo",
+          price: 8000,
           img: src="imagespm/buceo.jpg",
-          cantidad: 1
+          amount: 1
         },
 
         {
           id:"Snorkel con Lobos",
-          descripcion:"Disfruta de una expericia unica en la vida, intereractua con lobos marinos en su entorno.",
-          nombre:"Snorkel con Lobos",
-          precio: 4000,
+          description:"Disfruta de una expericia unica en la vida, intereractua con lobos marinos en su entorno.",
+          name:"Snorkel con Lobos",
+          price: 4000,
           img: src= "imagespm/snk lobo2.jpg",
-          cantidad: 1
+          amount: 1
         },
 
         {
           id:"Ciclismo Aventura",
-          descripcion:"Recorre los senderos por campo traviesa o a orillas del mar.",
-          nombre:"Ciclismo Aventura",
-          precio: 3000,
+          description:"Recorre los senderos por campo traviesa o a orillas del mar.",
+          name:"Ciclismo Aventura",
+          price: 3000,
           img: src= "imagespm/ciclismo.jpg",
-          cantidad: 1
+          amount: 1
         },        
 
         {
           id:"Kayak aventura",
-          descripcion:"Recorridos guiados por diferentes partes de la playa, relajante y hermoso.",
-          nombre:"Kayak aventura",
-          precio: 3000,
+          description:"Recorridos guiados por diferentes partes de la playa, relajante y hermoso.",
+          name:"Kayak aventura",
+          price: 3000,
           img: src= "imagespm/kayak.jpg",
-          cantidad: 1
+          amount: 1
         },
 
         {
           id:"Punta Norte",
-          descripcion:"Conoce el unico lugar del mundo, donde las Orcas hacen el varamiento intecional para cazar.",
-          nombre:"Punta Norte",
-          precio: 3000,
+          description:"Conoce el unico lugar del mundo, donde las Orcas hacen el varamiento intecional para cazar.",
+          name:"Punta Norte",
+          price: 3000,
           img: src= "imagespm/orca2.jpg",
-          cantidad: 1
+          amount: 1
         }
 
 ]

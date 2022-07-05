@@ -1,96 +1,94 @@
 //--------------------------Productos en html---------------------------------
 
-let titulo = document.getElementById("titulo")
-let verActividades = document.getElementById("verActividades")
+let title = document.getElementById("titulo")
+let seeActivities = document.getElementById("verActividades")
 const div = document.querySelector('.div')
 
-let carrito = []
+let cart = []
 
-if (localStorage.getItem('carrito')) {
-    carrito = JSON.parse(localStorage.getItem('carrito'))
-    mostrarCarrito(true)
+if (localStorage.getItem('cart')) {
+    cart = JSON.parse(localStorage.getItem('cart'))
+    watchcart(true)
 }
 
 
-function mostrarActividad() {
-    excursiones.forEach((paseos) => {
+function showActivities() {
+    excursions.forEach((rides) => {
         let card = document.createElement("div")
         card.setAttribute("class", "single-package-item")
         card.setAttribute("class", "col-md-4 col-sm-6")
-        verActividades.append(card)
+        seeActivities.append(card)
         let img = document.createElement("img")
-        img.setAttribute("src", paseos.img)
+        img.setAttribute("src", rides.img)
         img.setAttribute("class", "imgpacks")
-        let nombre = document.createElement("h3")
-        nombre.setAttribute("class", "single-package-item")
-        nombre.setAttribute("class", "single-package-item h3")
-        nombre.innerText = (paseos.nombre)
-        let descripcion = document.createElement("h4")
-        descripcion.setAttribute("class", "packages-para p")
-        descripcion.innerText = (paseos.descripcion)
-        let cantidad = document.createElement("h5")
-        cantidad.innerText = (paseos.cantidad)
-        let precio = document.createElement("span")
-        precio.innerText = (paseos.precio)
-        precio.setAttribute("class", "pull-right")
+        let name = document.createElement("h3")
+        name.setAttribute("class", "single-package-item")
+        name.setAttribute("class", "single-package-item h3")
+        name.innerText = (rides.name)
+        let description = document.createElement("h4")
+        description.setAttribute("class", "packages-para p")
+        description.innerText = (rides.description)
+        let amount = document.createElement("h5")
+        amount.innerText = (rides.amount)
+        let price = document.createElement("h4")
+        price.innerText =(rides.price)
+        price.setAttribute("class", "precio")
         let idProd = document.createElement("a")
-        idProd.innerText = (paseos.id)
+        idProd.innerText = (rides.id)
         let button = document.createElement("button")
         button.setAttribute("class", "btn btn-warning")
         button.innerText = ("Agregar al carrito")
-        card.append(img, nombre, descripcion, precio, button)
+        card.append(img, name, description, price, button)
 
         button.addEventListener("click", function() {
-            const item = carrito.find((item) => item.id === paseos.id)
-            if (!item) {
-                carrito.push(paseos)
-            } else {
-                item.cantidad += 1
-            }
-            alert("Agregaste " + paseos.nombre + " al carrito");
+            const item = cart.find((item) => item.id === rides.id)
+      
+            !item ?cart.push(rides):item.amount++
+            
+            alert("Agregaste " + rides.name + " al carrito");
 
             div.innerHTML = ``
-            mostrarCarrito()
+            watchcart()
         })
     })
 
 }
 
-mostrarActividad();
+showActivities();
 
-//-----------carrito----------------
+//-----------cart----------------
 
-let verCarrito = document.querySelector(".container-carrito")
-let showCarrito = document.querySelector(".carrito")
-let eliminarItem = document.querySelector(".eliminar")
+let seeCart = document.querySelector(".container-carrito")
+let showcart = document.querySelector(".carrito")
+let deleteItem = document.querySelector(".eliminar")
 
-//------productos del carrito------------
+//------productos del cart------------
 
 function removeItem(id) {
     document.getElementById(id).remove()
-    const findItem = carrito.find(element => element.id == id)
-    findItem.cantidad = 1
-    carrito = carrito.filter(element => element.id != id)
-    const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0)
-    document.getElementById("totalCarrito").innerText = ("Precio Total: $" + total)
-    if (!carrito.length) {
-        document.getElementById("totalCarrito").remove()
+    const findItem = cart.find(element => element.id == id)
+    findItem.amount = 1
+    cart = cart.filter(element => element.id != id)
+    const total = cart.reduce((acc, item) => acc + (item.price * item.amount), 0)
+    document.getElementById("totalcart").innerText = ("Precio Total: $" + total)
+    if (!cart.length) {
+        document.getElementById("totalcart").remove()
     }
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    localStorage.setItem('cart', JSON.stringify(cart))
 }
 
-function mostrarCarrito(first) {
+function watchcart(first) {
     if (!first) {
         alertCart.remove()
     }
-    carrito.forEach((element) => {
+    cart.forEach((element) => {
         const divCart = document.createElement('tr')
         divCart.id = `${element.id}`
-        divCart.innerHTML += ` <hr>
-        <td class="col-md-4"><img class="img-carrito" src="${element.img}"></td>
-        <td class="col-md-2"><h3>${element.nombre}</h3></td>
-        <td class="col-md-2"><h5>cantidad: ${element.cantidad}<h5></td>
-        <td class="col-md-2"><h3>$${element.precio * element.cantidad}</h3></td>
+        divCart.innerHTML += ` 
+        <td class="col-md-4"><img class="img-cart" src="${element.img}"></td>
+        <td class="col-md-2"><h3>${element.name}</h3></td>
+        <td class="col-md-2"><h5>cantidad: ${element.amount}<h5></td>
+        <td class="col-md-2"><h3>${element.price * element.amount}</h3></td>
         <td class="col-md-2"><button class="eliminar" onclick="removeItem('${divCart.id}')" data-id=${element.id}>Quitar</button></td><hr>`
         div.setAttribute("class", "listado")
         div.appendChild(divCart)
@@ -98,24 +96,24 @@ function mostrarCarrito(first) {
     })
 
     //-----------------total-------------------
-    const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0)
-    let totalCompra = document.createElement("h4")
-    totalCompra.id = "totalCarrito"
-    totalCompra.setAttribute("class", "total")
+    const total = cart.reduce((acc, item) => acc + (item.price * item.amount), 0)
+    let totalbuy = document.createElement("h3")
+    totalbuy.id = "totalcart"
+    totalbuy.setAttribute("class", "total")
     if (total) {
-        totalCompra.innerText = ("Precio Total: $" + total)
+        totalbuy.innerText = ("Precio Total: $" + total)
     }
-    div.append(totalCompra)
+    div.append(totalbuy)
 
-    localStorage.setItem('carrito', JSON.stringify(carrito))
+    localStorage.setItem('cart', JSON.stringify(cart))
 
 }
 
-//---------aviso de carrito vacio--------------
+//---------aviso de cart vacio--------------
 let alertCart = document.createElement("h3")
 alertCart.setAttribute("class", "vacio")
 
-if (!carrito.length) {
+if (!cart.length) {
     alertCart.innerText = ("El carrito está vacío")
     div.append(alertCart)
 } else { alertCart.remove() }
@@ -129,19 +127,19 @@ if (!carrito.length) {
 
 
 
-//--------------ventana modal(carrito)-------------------------
+//--------------ventana modal(cart)-------------------------
 
-const abrirCarrito = document.querySelector('.compras');
-const elCarrito = document.querySelector('.container-carrito');
-const cerrarCarrito = document.querySelector('.cerrar-carrito');
+const openCart = document.querySelector('.compras');
+const cartCont = document.querySelector('.container-carrito');
+const closeCart = document.querySelector('.cerrar-carrito');
 
 
-abrirCarrito.addEventListener('click', (event) => {
+openCart.addEventListener('click', (event) => {
     event.preventDefault()
-    elCarrito.classList.add('ventana-carrito');
+    cartCont.classList.add('ventana-carrito');
 })
 
-cerrarCarrito.addEventListener('click', function(event) {
+closeCart.addEventListener('click', function(event) {
     event.preventDefault()
-    elCarrito.classList.remove('ventana-carrito')
+    cartCont.classList.remove('ventana-carrito')
 });
