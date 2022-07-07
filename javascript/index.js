@@ -40,12 +40,20 @@ function showActivities() {
         button.innerText = ("Agregar al carrito")
         card.append(img, name, description, price, button)
 
+//----------------boton agregar carrito-------------
         button.addEventListener("click", function() {
             const item = cart.find((item) => item.id === rides.id)
       
             !item ?cart.push(rides):item.amount++
             
-            alert("Agregaste " + rides.name + " al carrito");
+              Swal.fire({
+                title:"Agregaste " + rides.name + " al carrito",
+                text: 'Es una experencia maravillosa',
+                imageUrl: rides.img,
+                imageWidth: 300,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+              })
 
             div.innerHTML = ``
             watchcart()
@@ -79,6 +87,7 @@ function removeItem(id) {
 
 function watchcart(first) {
     if (!first) {
+
         alertCart.remove()
     }
     cart.forEach((element) => {
@@ -92,8 +101,18 @@ function watchcart(first) {
         <td class="col-md-2"><button class="eliminar" onclick="removeItem('${divCart.id}')" data-id=${element.id}>Quitar</button></td><hr>`
         div.setAttribute("class", "listado")
         div.appendChild(divCart)
+      
+})
+//   const alertprod =()=>{
+//             Swal.fire(
+//                 "se elimino actividad",
+//                 "lo puedes agregar de nuevo si te arrepientes",
+//                 "error"
+//               )
+//         }
 
-    })
+//         let quitprod = document.querySelector(".eliminar")
+//         quitprod.onclick = alertprod
 
     //-----------------total-------------------
     const total = cart.reduce((acc, item) => acc + (item.price * item.amount), 0)
@@ -117,7 +136,6 @@ if (!cart.length) {
     alertCart.innerText = ("El carrito está vacío")
     div.append(alertCart)
 } else { alertCart.remove() }
-
 
 //-------------fconfirmar compra---------------
 //    let cerrarCompra = document.querySelector(".eliminar")
@@ -143,3 +161,21 @@ closeCart.addEventListener('click', function(event) {
     event.preventDefault()
     cartCont.classList.remove('ventana-carrito')
 });
+
+//------------alerta de suscripcion------------
+const confirmation =(e) =>{
+    Swal.fire({
+        title:'Muchas gracias por suscribirte!!',
+        text:'Pronto te enviaremos todas nuetras novedades',
+        icon:'success',
+        showConfirmButton: true,
+       })
+       e.preventDefault
+    }
+
+let mail = document.querySelector("form-control")
+let subcription = document.querySelector(".appsLand-btn");
+subcription.onclick = confirmation
+ 
+
+
