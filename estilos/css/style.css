@@ -97,8 +97,9 @@ html,body{
 }
 
 .top-area {
-    background-color: #1c97e4;
+    background-color: #47a8e5;
     width: 100%;
+    align-items: center;
 }
 .wrapper {
     position: relative;
@@ -148,6 +149,14 @@ html,body{
 .logo a span{
     color: #00d8ff;
     text-transform: capitalize;
+}
+.cart-img{
+    width:50px ;
+}
+.cart-img :hover{
+    width: 70px;
+    rotate:30% ;
+    --transform: translateY(1);
 }
 
 
@@ -872,12 +881,12 @@ html,body{
     font-family: 'Poppins', sans-serif;
     text-transform: capitalize;
 }
-
-.compras{
-    padding: 15px 20px;
-    display: inline-block;
-    font-weight: 500;
-    transition: background-color .3s;
+.btn-ver{
+    background-color: #00d8ff;
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 6px;
+    border: none;
 }
 
 .container-carrito{
@@ -930,10 +939,7 @@ html,body{
     margin-bottom: 10px;
     text-align: center;
     font-weight: bold;
-    
-
 }
-
 
 .cerrar-carrito{
     text-decoration: none;

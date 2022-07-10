@@ -1,0 +1,84 @@
+[
+         
+    {
+      "id":"avistaje",
+      "description":"Disfrute de multiplies lugares para hacer avistajes de ballenes,delfines y lobos.",
+      "name":"Avistajes",
+      "price": 5000,
+      "img":"imagespm/avistaje2.jpg",
+      "amount": 1  
+    },
+
+    { 
+      "id":"Buceo",
+      "description":"Vivi una experencia unica, veni a descubrir el lecho marino del Golfo Nuevo.",
+      "name":"Buceo",
+      "price": 8000,
+      "img": "imagespm/buceo.jpg",
+      "amount": 1
+    },
+
+    {
+      "id":"Snorkel con Lobos",
+      "description":"Disfruta de una expericia unica en la vida, intereractua con lobos marinos en su entorno.",
+      "name":"Snorkel con Lobos",
+      "price": 4000,
+      "img":"imagespm/snk lobo2.jpg",
+      "amount": 1
+    },
+
+    { 
+      "id":"Ciclismo Aventura",
+      "description":"Recorre los senderos por campo traviesa o a orillas del mar.",
+      "name":"Ciclismo Aventura",
+      "price": 3000,
+      "img":"imagespm/ciclismo.jpg",
+      "amount": 1 
+    },
+    
+    {
+      "id":"Kayak aventura",
+      "description":"Recorridos guiados por diferentes partes de la playa, relajante y hermoso.",
+      "name":"Kayak aventura",
+      "price": 3000,
+      "img":"imagespm/kayak.jpg",
+      "amount": 1
+    },
+
+    {
+       "id":"Punta Norte",
+      "description":"Conoce el unico lugar del mundo, donde las Orcas hacen el varamiento intecional para cazar.",
+      "name":"Punta Norte",
+      "price": 3000,
+      "img":"imagespm/orca2.jpg",
+      "amount": 1
+    },
+
+    {
+      "id":"windsurf",
+      "description":"Clases de windsurf muy completas con paseos hermosos!.",
+      "name":"Escuela de Windsurf",
+      "price": 9000,
+      "img":"imagespm/windsurf.jpg",
+      "amount": 1
+    },
+
+    {
+      "id":"Tombo",
+      "description":"Conozca una de las colonias de pinguinos mas grande,miles de ellos a su alrededor.",
+      "name":"Punta Tombo",
+      "price": 2000,
+      "img":"imagespm/pinguino.jpg",
+      "amount": 1
+    },
+    
+    {
+      "id":"sky",
+      "description":"Alquiles de todo el equipo necesario para realizar Skysurf.",
+      "name":"Alquiler de equipos de Skysurf",
+      "price": 7500,
+      "img":"imagespm/sky.jpg",
+      "amount": 1
+    }
+    
+]

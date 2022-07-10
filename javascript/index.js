@@ -1,18 +1,11 @@
 //--------------------------Productos en html---------------------------------
 
-let title = document.getElementById("titulo")
-let seeActivities = document.getElementById("verActividades")
-const div = document.querySelector('.div')
-
-let cart = []
-
-if (localStorage.getItem('cart')) {
-    cart = JSON.parse(localStorage.getItem('cart'))
-    watchcart(true)
-}
-
-
-function showActivities() {
+const fetchLocal = async () => {
+    try{
+     const response= await fetch ("./actividades.json")
+     const prod = await response.json();
+     excursions=prod
+    
     excursions.forEach((rides) => {
         let card = document.createElement("div")
         card.setAttribute("class", "single-package-item")
@@ -31,14 +24,14 @@ function showActivities() {
         let amount = document.createElement("h5")
         amount.innerText = (rides.amount)
         let price = document.createElement("h4")
-        price.innerText =(rides.price)
+        price.innerText =("$",rides.price)
         price.setAttribute("class", "precio")
         let idProd = document.createElement("a")
         idProd.innerText = (rides.id)
         let button = document.createElement("button")
         button.setAttribute("class", "btn btn-warning")
         button.innerText = ("Agregar al carrito")
-        card.append(img, name, description, price, button)
+        card.append(img, name, description, price, button,)
 
 //----------------boton agregar carrito-------------
         button.addEventListener("click", function() {
@@ -53,16 +46,37 @@ function showActivities() {
                 imageWidth: 300,
                 imageHeight: 200,
                 imageAlt: 'Custom image',
+                footer:"Muchas gracias por elegir Turismo Madryn"
               })
 
             div.innerHTML = ``
             watchcart()
-        })
+        })  
+
     })
 
+} catch (error){
+        console.error(error)
+    }
 }
 
-showActivities();
+fetchLocal();
+
+
+
+let title = document.getElementById("titulo")
+let seeActivities = document.getElementById("verActividades")
+const div = document.querySelector('.div')
+
+let cart = []
+
+if (localStorage.getItem('cart')) {
+    cart = JSON.parse(localStorage.getItem('cart'))
+    watchcart(true)
+}
+
+
+
 
 //-----------cart----------------
 
@@ -74,8 +88,10 @@ let deleteItem = document.querySelector(".eliminar")
 
 function removeItem(id) {
     document.getElementById(id).remove()
+
     const findItem = cart.find(element => element.id == id)
     findItem.amount = 1
+     
     cart = cart.filter(element => element.id != id)
     const total = cart.reduce((acc, item) => acc + (item.price * item.amount), 0)
     document.getElementById("totalcart").innerText = ("Precio Total: $" + total)
@@ -94,25 +110,15 @@ function watchcart(first) {
         const divCart = document.createElement('tr')
         divCart.id = `${element.id}`
         divCart.innerHTML += ` 
-        <td class="col-md-4"><img class="img-cart" src="${element.img}"></td>
+        <td class="col-md-3"><img class="img-cart" src="${element.img}"></td>
         <td class="col-md-2"><h3>${element.name}</h3></td>
         <td class="col-md-2"><h5>cantidad: ${element.amount}<h5></td>
         <td class="col-md-2"><h3>${element.price * element.amount}</h3></td>
         <td class="col-md-2"><button class="eliminar" onclick="removeItem('${divCart.id}')" data-id=${element.id}>Quitar</button></td><hr>`
         div.setAttribute("class", "listado")
-        div.appendChild(divCart)
+        div.appendChild(divCart) 
       
 })
-//   const alertprod =()=>{
-//             Swal.fire(
-//                 "se elimino actividad",
-//                 "lo puedes agregar de nuevo si te arrepientes",
-//                 "error"
-//               )
-//         }
-
-//         let quitprod = document.querySelector(".eliminar")
-//         quitprod.onclick = alertprod
 
     //-----------------total-------------------
     const total = cart.reduce((acc, item) => acc + (item.price * item.amount), 0)
@@ -147,7 +153,7 @@ if (!cart.length) {
 
 //--------------ventana modal(cart)-------------------------
 
-const openCart = document.querySelector('.compras');
+const openCart = document.querySelector('.cart-img');
 const cartCont = document.querySelector('.container-carrito');
 const closeCart = document.querySelector('.cerrar-carrito');
 
@@ -164,18 +170,24 @@ closeCart.addEventListener('click', function(event) {
 
 //------------alerta de suscripcion------------
 const confirmation =(e) =>{
+     
     Swal.fire({
         title:'Muchas gracias por suscribirte!!',
         text:'Pronto te enviaremos todas nuetras novedades',
         icon:'success',
-        showConfirmButton: true,
+        showConfirmButton: true
        })
-       e.preventDefault
+      e.preventDefault()
     }
 
 let mail = document.querySelector("form-control")
 let subcription = document.querySelector(".appsLand-btn");
 subcription.onclick = confirmation
  
-
+    // Swal.fire(
+    //             "se elimino actividad",
+    //             "lo puedes agregar de nuevo si te arrepientes",
+    //             "error",
+                
+    //           )
 
