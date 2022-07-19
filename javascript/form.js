@@ -20,11 +20,7 @@ function registerUser(){
  chekMail= document.querySelector("#gridCheck").value;
  
  user.push(mail,nameUser,adress,data,city,chekMail);
-
- localStorage.setItem('user', JSON.stringify(user))
-
- }
-
+}
 
 //--------------alert-compra confirmada---------
 

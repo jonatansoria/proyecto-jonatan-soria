@@ -29,7 +29,7 @@
 
     { 
       "id":"Ciclismo Aventura",
-      "description":"Recorre los senderos por campo traviesa o a orillas del mar.",
+      "description":"Recorre los diferentes senderos por campo traviesa y a orillas del mar.",
       "name":"Ciclismo Aventura",
       "price": 3000,
       "img":"imagespm/ciclismo.jpg",
@@ -56,7 +56,7 @@
 
     {
       "id":"windsurf",
-      "description":"Clases de windsurf muy completas con paseos hermosos!.",
+      "description":"Clases de windsurf muy completas con paseos hermososn,nosotros te brindamos todo el equipo necesario.",
       "name":"Escuela de Windsurf",
       "price": 9000,
       "img":"imagespm/windsurf.jpg",
